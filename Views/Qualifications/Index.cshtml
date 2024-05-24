@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ResumeManagement.Models.Qualification>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header text-end">
+                @Html.ActionLink("Create New", "Create", null, new {@class="btn btn-success"})
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.QualificationName)
+                        </th>
+                        <th>Action</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.QualificationName)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.QualificationId }, new {@class="btn btn-primary"}) 
+                                @Html.ActionLink("Details", "Details", new { id = item.QualificationId }, new { @class = "btn btn-info" }) 
+                                @Html.ActionLink("Delete", "Delete", new { id = item.QualificationId }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
